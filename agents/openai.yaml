@@ -1,0 +1,4 @@
+interface:
+  display_name: "论文/报告全流程写作"
+  short_description: "论文与报告写作全流程：规划、撰写、审查与 LaTeX 编译"
+  default_prompt: "Use $write-paper-report to plan, write, review, and compile a LaTeX paper or report."

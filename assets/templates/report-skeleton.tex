@@ -1,0 +1,32 @@
+% 报告骨架。用 xelatex 编译：
+% python scripts/compile_latex.py main.tex
+\documentclass[11pt]{ctexart}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+
+\title{报告标题}
+\author{作者或部门}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{概述}
+背景与目的，用一两段说明。
+
+\section{现状与数据}
+事实与数据，每个数字注明来源。
+
+\section{分析}
+按问题分节。先给结论，后给依据。
+
+\section{结论与建议}
+结论。建议逐条列出，给出理由与预期效果。
+
+\end{document}

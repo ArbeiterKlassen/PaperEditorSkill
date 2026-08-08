@@ -1,0 +1,81 @@
+% 期刊论文骨架（英文）。用 xelatex 编译：
+% python scripts/compile_latex.py main.tex
+%
+% 默认用通用 article 类。投稿前按目标期刊换成官方模板：
+% - IEEE 系期刊：\documentclass[journal]{IEEEtran}，配合 IEEEtran.bst
+% - Elsevier 期刊：\documentclass[review]{elsarticle}
+% - Springer 期刊：\documentclass[sn-basic]{sn-jnl}
+% 这些类多数 TeX Live 发行版自带。官方模板以期刊 Author Guide 为准，不要手改。
+\documentclass[11pt]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{natbib}
+\usepackage[hidelinks]{hyperref}
+
+\title{期刊论文标题}
+\author{作者姓名 \\ 机构，城市，国家 \\ \texttt{email@example.com}}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+摘要四句：问题、方法、结果、结论。
+\end{abstract}
+
+\noindent\textbf{Keywords:} keyword1, keyword2, keyword3
+
+\section{Introduction}
+\label{sec:intro}
+背景与问题。相关工作线索。本文贡献。
+
+\section{Related Work}
+\label{sec:related}
+按主题组织，每个主题给出关键文献与差异。
+
+\section{Method}
+\label{sec:method}
+公式与算法描述。
+
+\section{Experiments}
+\label{sec:experiments}
+数据、设置、结果。
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lcc}
+\toprule
+方法 & 指标A & 指标B \\
+\midrule
+基线 & 0.00 & 0.00 \\
+本文 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\caption{结果对比。数字须与数据源一致。}
+\label{tab:results}
+\end{table}
+
+\section{Conclusion}
+\label{sec:conclusion}
+总结与展望。
+
+\section*{Acknowledgements}
+致谢。
+
+% 正式投稿时把 thebibliography 换成 .bib 文件：
+% \bibliographystyle{plainnat}
+% \bibliography{references}
+\begin{thebibliography}{9}
+\bibitem[Author et al.(2026)]{example2026} A.~Author, B.~Author. Title of the paper. \textit{Journal Name}, 2026.
+\end{thebibliography}
+
+\appendix
+\section{Appendix}
+\label{app:detail}
+补充细节。
+
+\end{document}

@@ -1,0 +1,59 @@
+% 论文骨架。用 xelatex 编译：
+% python scripts/compile_latex.py main.tex
+\documentclass[11pt]{ctexart}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{natbib}
+\usepackage[hidelinks]{hyperref}
+
+\title{论文标题}
+\author{作者姓名}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+摘要写四句：研究问题、方法、结果、结论。
+\end{abstract}
+
+\section{引言}
+研究背景。研究问题。本文贡献。
+
+\section{相关工作}
+按主题组织，每个主题给出关键文献与差异。
+
+\section{方法}
+\label{sec:method}
+公式与算法描述。
+
+\section{实验}
+\label{sec:experiments}
+数据、设置、结果。
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lcc}
+\toprule
+方法 & 指标A & 指标B \\
+\midrule
+基线 & 0.00 & 0.00 \\
+本文 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\caption{结果对比。数字须与数据源一致。}
+\label{tab:results}
+\end{table}
+
+\section{结论}
+\label{sec:conclusion}
+总结与展望。
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

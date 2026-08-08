@@ -1,0 +1,67 @@
+% 学术报告骨架（中文）。用 xelatex 编译：
+% python scripts/compile_latex.py main.tex
+\documentclass[12pt]{ctexrep}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+
+\title{学术报告标题}
+\author{作者姓名}
+\date{\today}
+
+\begin{document}
+
+% 封面
+\begin{titlepage}
+\centering
+\vspace*{3cm}
+{\LARGE\bfseries 学术报告标题\par}
+\vspace{2cm}
+{\large 作者姓名\par}
+\vspace{1cm}
+{\large 单位\par}
+\vspace{1cm}
+{\large \today\par}
+\vfill
+\end{titlepage}
+
+% 摘要与关键词
+\newpage
+\noindent\textbf{摘要}\par
+\vspace{0.5em}
+摘要四句：背景、问题、内容、结论。
+\par\vspace{1em}
+\noindent\textbf{关键词：}关键词1、关键词2、关键词3
+
+% 目录
+\tableofcontents
+
+\chapter{引言}
+\label{chap:intro}
+背景与目的。
+
+\chapter{现状与数据}
+\label{chap:data}
+事实与数据，每个数字注明来源。
+
+\chapter{分析}
+\label{chap:analysis}
+按问题分节，先给结论，后给依据。
+
+\chapter{结论与建议}
+\label{chap:conclusion}
+结论。建议逐条列出，给出理由与预期效果。
+
+\begin{thebibliography}{9}
+\bibitem{example2026} 作者. 文献标题. 期刊名, 2026.
+\end{thebibliography}
+
+\appendix
+\chapter{附录}
+\label{app:detail}
+补充材料。
+
+\end{document}
