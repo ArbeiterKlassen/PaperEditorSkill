@@ -23,6 +23,8 @@ description: 论文与报告的全流程写作技能。先确认用户要写论�
 
 目标是期刊时，用 [assets/templates/journal-skeleton.tex](assets/templates/journal-skeleton.tex) 生成初稿，投稿前换成目标期刊的官方模板。学术报告用 [assets/templates/report-academic-skeleton.tex](assets/templates/report-academic-skeleton.tex)，含封面、摘要、目录与附录。
 
+数学建模竞赛（高教社杯/华数杯）优先用 [assets/cumcmthesis/cumcmthesis.cls](assets/cumcmthesis/cumcmthesis.cls) 社区标准类，用法示例见 [assets/templates/cumcm-skeleton.tex](assets/templates/cumcm-skeleton.tex)。电子版用 withoutpreface 选项，承诺书与编号专用页用官方模板单独提交。
+
 报告：查找报告模板。找到后询问用户是否使用。找不到就使用 [assets/templates/report-skeleton.tex](assets/templates/report-skeleton.tex) 生成初稿。
 
 ### 3. 收集内容
@@ -75,6 +77,8 @@ description: 论文与报告的全流程写作技能。先确认用户要写论�
 - [references/versioning.md](references/versioning.md)：版本快照、命名与变更记录规范。
 - [references/figures.md](references/figures.md)：teaser/overview 绘图的叙事、面板与版式。
 - [assets/templates/paper-skeleton.tex](assets/templates/paper-skeleton.tex)：论文初稿骨架。
+- [assets/templates/cumcm-skeleton.tex](assets/templates/cumcm-skeleton.tex)：数学建模竞赛论文骨架，摘要页与正文分离，不含承诺书页。
+- [assets/cumcmthesis/cumcmthesis.cls](assets/cumcmthesis/cumcmthesis.cls)：数学建模竞赛 LaTeX 类文件，含题号、报名号、队员等命令。
 - [assets/templates/journal-skeleton.tex](assets/templates/journal-skeleton.tex)：期刊论文骨架，附 IEEEtran、elsarticle、sn-jnl 替换说明。
 - [assets/templates/report-skeleton.tex](assets/templates/report-skeleton.tex)：报告初稿骨架。
 - [assets/templates/report-academic-skeleton.tex](assets/templates/report-academic-skeleton.tex)：学术报告骨架，含封面、摘要、目录与附录。

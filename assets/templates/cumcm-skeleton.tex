@@ -1,0 +1,93 @@
+% 全国大学生数学建模竞赛论文骨架（高教社杯 CUMCM）
+% 电子版论文：第一页为摘要专用页，不含承诺书与编号专用页。
+% 承诺书与编号专用页用官方 Word 模板填写后单独提交。
+% 正文不设目录。用 xelatex 编译：
+% python scripts/compile_latex.py main.tex
+\documentclass[12pt]{ctexart}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{algorithm,algpseudocode}
+\usepackage[hidelinks]{hyperref}
+
+\title{题目名称}
+\author{参赛队号：\qquad\qquad}
+\date{\today}
+
+\begin{document}
+
+% ===== 摘要专用页（不超过一页，本页起编页码）=====
+\begin{center}
+{\LARGE\bfseries 题目名称\par}
+\vspace{1.2em}
+\end{center}
+
+\noindent\textbf{摘\quad 要}\par
+\vspace{0.5em}
+
+摘要写法：针对什么问题，建立什么模型，用什么方法求解，得到什么结果。先模型后结果，结果给出具体数值。
+
+\vspace{1em}
+\noindent\textbf{关键词：}关键词1；关键词2；关键词3
+
+\newpage
+
+% ===== 正文 =====
+\section{问题重述}
+
+\subsection{问题背景}
+
+\subsection{问题提出}
+
+\section{问题分析}
+
+对每个问题给出分析思路，说明准备用什么模型。
+
+\section{模型假设}
+
+\begin{enumerate}
+  \item 假设一。
+  \item 假设二。
+\end{enumerate}
+
+\section{符号说明}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lll}
+\toprule
+符号 & 含义 & 单位 \\
+\midrule
+$x$ & 示例 & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{模型的建立与求解}
+
+\subsection{问题一}
+
+\subsubsection{模型的建立}
+
+\subsubsection{模型的求解}
+
+\subsection{问题二}
+
+\section{模型的检验}
+
+\section{模型的评价与推广}
+
+\section{参考文献}
+
+\begin{thebibliography}{9}
+\bibitem{example2026} 作者. 文献标题. 出版信息, 2026.
+\end{thebibliography}
+
+\appendix
+\section{附录}
+
+代码与补充表格。
+
+\end{document}

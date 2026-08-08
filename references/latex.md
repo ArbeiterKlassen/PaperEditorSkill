@@ -80,6 +80,10 @@ skill 自带两份模板：
 
 [assets/templates/report-academic-skeleton.tex](../assets/templates/report-academic-skeleton.tex) 是中文学术报告骨架，用 ctexrep，含封面、摘要、关键词、目录、章节、参考文献与附录。数据类报告每章先结论后依据，数字注明来源。
 
+数学建模竞赛（高教社杯 CUMCM）用 [assets/templates/cumcm-skeleton.tex](../assets/templates/cumcm-skeleton.tex)。按官方格式规范：电子版第一页为摘要专用页，含标题与关键词、不超过一页、页码从本页起编；正文不设目录；承诺书与编号专用页不在电子版中，用官方 Word 模板单独填写提交。
+
+社区标准类 [assets/cumcmthesis/cumcmthesis.cls](../assets/cumcmthesis/cumcmthesis.cls) 提供完整版式。常用写法：`\documentclass[withoutpreface,bwprint]{cumcmthesis}`，`\tihao{A}` 写题号，`\baominghao{}` 写报名号，`\membera/b/c{}` 写队员，`\keywords{...}` 在 abstract 环境内写关键词。withoutpreface 表示电子版不含承诺书与编号页；纸质版需要时去掉该选项。
+
 ## 页数与参考文献数量
 
 - 会议论文：正文页数与参考文献页数按 CFP 分别要求。AAAI 这类双栏会议对文献页数有规定，以当年 CFP 为准。

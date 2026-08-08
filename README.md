@@ -37,6 +37,8 @@
 ### 模板与样式
 
 - paper-skeleton.tex：会议论文骨架。
+- cumcm-skeleton.tex：数学建模竞赛（高教社杯）论文骨架，摘要页与正文分离，电子版不含承诺书页。
+- cumcmthesis/cumcmthesis.cls：数学建模竞赛 LaTeX 类，支持 withoutpreface 选项与题号、报名号、队员命令。
 - journal-skeleton.tex：期刊论文骨架，附 IEEEtran、elsarticle、sn-jnl 替换说明。
 - report-skeleton.tex：普通报告骨架。
 - report-academic-skeleton.tex：学术报告骨架，含封面、摘要、目录、参考文献与附录。
