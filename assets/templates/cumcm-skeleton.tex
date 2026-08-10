@@ -1,62 +1,96 @@
-% 全国大学生数学建模竞赛论文骨架（高教社杯 CUMCM）
-% 电子版论文：第一页为摘要专用页，不含承诺书与编号专用页。
-% 承诺书与编号专用页用官方 Word 模板填写后单独提交。
-% 正文不设目录。用 xelatex 编译：
-% python scripts/compile_latex.py main.tex
-\documentclass[12pt]{ctexart}
+% 全国大学生数学建模竞赛论文骨架（高教社杯/华数杯）
+% 电子版：第一页为摘要页，不含承诺书与编号页。
+% 正文约 20 页，附录代码不超过 25 页。
+% 用 xelatex 编译：python scripts/compile_latex.py main.tex
+\documentclass[withoutpreface,bwprint]{cumcmthesis}
 
-\usepackage[margin=2.5cm]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage{algorithm,algpseudocode}
-\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\lstset{
+  language=Python,
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  tabsize=4,
+}
 
 \title{题目名称}
-\author{参赛队号：\qquad\qquad}
-\date{\today}
+\tihao{A}
+\baominghao{参赛队号}
+\schoolname{学校名称}
+\membera{队员一}
+\memberb{队员二}
+\memberc{队员三}
+\supervisor{指导教师}
+\yearinput{2025}
+\monthinput{09}
+\dayinput{07}
 
 \begin{document}
 
-% ===== 摘要专用页（不超过一页，本页起编页码）=====
-\begin{center}
-{\LARGE\bfseries 题目名称\par}
-\vspace{1.2em}
-\end{center}
+\maketitle
 
-\noindent\textbf{摘\quad 要}\par
-\vspace{0.5em}
+\begin{abstract}
+摘要写满一页但不超页。先一句话写问题与方法，再按问给方法和数值结果，最后写创新点与检验结论。不要机械堆"针对问题一……问题二……"的排比开头。
 
-摘要写法：针对什么问题，建立什么模型，用什么方法求解，得到什么结果。先模型后结果，结果给出具体数值。
+\keywords{关键词1；关键词2；关键词3}
+\end{abstract}
 
-\vspace{1em}
-\noindent\textbf{关键词：}关键词1；关键词2；关键词3
-
+\tableofcontents
 \newpage
 
-% ===== 正文 =====
-\section{问题重述}
+\section{问题的背景与重述}
 
 \subsection{问题背景}
 
-\subsection{问题提出}
+\subsection{问题重述}
 
 \section{问题分析}
 
-对每个问题给出分析思路，说明准备用什么模型。
+按问分节，每问写三块：要求、难点、思路。每问配一张流程图。
+
+\subsection{问题一的分析}
+
+要求：……
+
+难点：……
+
+为此，本文……
+
+\begin{figure}[H]
+\centering
+% 流程图占位，用 TikZ 或脚本生成
+\caption{问题一流程分析图}
+\end{figure}
+
+\subsection{问题二的分析}
+
+\subsection{问题三的分析}
+
+\subsection{本文的主要工作与创新}
+
+超出题目本身的内容放在这里或"模型的拓展"节，是争奖的关键。
 
 \section{模型假设}
 
+每条假设附一句合理性说明。
+
 \begin{enumerate}
-  \item 假设一。
-  \item 假设二。
+  \item 假设一。该假设的合理性：……
+  \item 假设二。该假设的合理性：……
 \end{enumerate}
 
 \section{符号说明}
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
-\begin{tabular}{lll}
+\begin{tabular}{cll}
 \toprule
 符号 & 含义 & 单位 \\
 \midrule
@@ -67,17 +101,41 @@ $x$ & 示例 & \\
 
 \section{模型的建立与求解}
 
+公式全部编号，推导写完整步骤。
+
 \subsection{问题一}
 
 \subsubsection{模型的建立}
 
+\begin{equation}
+E = mc^2 .
+\end{equation}
+
 \subsubsection{模型的求解}
+
+\begin{algorithm}[H]
+\caption{求解算法}
+\begin{algorithmic}[1]
+\State 第一步；
+\State 第二步；
+\end{algorithmic}
+\end{algorithm}
 
 \subsection{问题二}
 
+\subsection{问题三}
+
+\section{模型的拓展与深入分析}
+
+方法理论分析、判据标定、不确定性传播、推广与设计准则。
+
 \section{模型的检验}
 
-\section{模型的评价与推广}
+合成数据验证表、一致性检验、敏感性分析。
+
+\section{模型的评价}
+
+优缺点与推广。
 
 \section{参考文献}
 
@@ -86,8 +144,11 @@ $x$ & 示例 & \\
 \end{thebibliography}
 
 \appendix
-\section{附录}
+\section{附录：完整代码}
 
-代码与补充表格。
+代码文件清单与说明，结果文件说明。
+
+\subsection{main.py}
+\lstinputlisting{../codes/main.py}
 
 \end{document}

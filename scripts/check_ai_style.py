@@ -61,6 +61,8 @@ COUNT_PATTERNS = [
     (re.compile(r"\bsignificant(ly)?\b", re.IGNORECASE), "significant 出现次数", 6),
     (re.compile(r"首先|其次|最后"), "排比连接词", 3),
     (re.compile(r"[\u2013\u2014]"), "破折号", 2),
+    (re.compile(r"\uFF1A"), "全角冒号", 3),
+    (re.compile(r"[\u201C\u201D\u2018\u2019]"), "引号", 1),
 ]
 
 TARGET_EXT = {".tex", ".md"}

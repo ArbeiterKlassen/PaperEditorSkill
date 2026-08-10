@@ -28,7 +28,7 @@
 1. 把每条审稿意见编号。
 2. 每条意见分类：理解偏差、可修问题、需要新实验、无法满足。
 3. 按 [assets/templates/rebuttal-template.md](../assets/templates/rebuttal-template.md) 逐条写回应。
-4. 每轮修改后重跑五类审查（[review.md](review.md)），不只查改动处。
+4. 每轮修改后重跑七类审查（[review.md](review.md)），不只查改动处。
 
 回应写作要求：
 - 先复述审稿人的问题，证明你读懂了。

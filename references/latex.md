@@ -84,6 +84,8 @@ skill 自带两份模板：
 
 社区标准类 [assets/cumcmthesis/cumcmthesis.cls](../assets/cumcmthesis/cumcmthesis.cls) 提供完整版式。常用写法：`\documentclass[withoutpreface,bwprint]{cumcmthesis}`，`\tihao{A}` 写题号，`\baominghao{}` 写报名号，`\membera/b/c{}` 写队员，`\keywords{...}` 在 abstract 环境内写关键词。withoutpreface 表示电子版不含承诺书与编号页；纸质版需要时去掉该选项。
 
+数模格式细节：正文约 20 页，附录代码不超过 25 页；摘要写满一页但不超页；问题分析按问分节并配流程图；公式带编号；附录用 listings 挂载代码文件与 codes/ 同步。完整写法见 [cumcm.md](cumcm.md)。
+
 ## 页数与参考文献数量
 
 - 会议论文：正文页数与参考文献页数按 CFP 分别要求。AAAI 这类双栏会议对文献页数有规定，以当年 CFP 为准。

@@ -23,7 +23,7 @@ description: 论文与报告的全流程写作技能。先确认用户要写论�
 
 目标是期刊时，用 [assets/templates/journal-skeleton.tex](assets/templates/journal-skeleton.tex) 生成初稿，投稿前换成目标期刊的官方模板。学术报告用 [assets/templates/report-academic-skeleton.tex](assets/templates/report-academic-skeleton.tex)，含封面、摘要、目录与附录。
 
-数学建模竞赛（高教社杯/华数杯）优先用 [assets/cumcmthesis/cumcmthesis.cls](assets/cumcmthesis/cumcmthesis.cls) 社区标准类，用法示例见 [assets/templates/cumcm-skeleton.tex](assets/templates/cumcm-skeleton.tex)。电子版用 withoutpreface 选项，承诺书与编号专用页用官方模板单独提交。
+数学建模竞赛（高教社杯/华数杯）优先用 [assets/cumcmthesis/cumcmthesis.cls](assets/cumcmthesis/cumcmthesis.cls) 社区标准类，用法示例见 [assets/templates/cumcm-skeleton.tex](assets/templates/cumcm-skeleton.tex)。电子版用 withoutpreface 选项，承诺书与编号专用页用官方模板单独提交。篇幅、摘要、问题分析、创新点与附录代码的写法见 [references/cumcm.md](references/cumcm.md)。
 
 报告：查找报告模板。找到后询问用户是否使用。找不到就使用 [assets/templates/report-skeleton.tex](assets/templates/report-skeleton.tex) 生成初稿。
 
@@ -43,7 +43,7 @@ description: 论文与报告的全流程写作技能。先确认用户要写论�
 
 ### 5. 审查
 
-按 [references/review.md](references/review.md) 执行六类审查：数值一致性、交叉引用与编译、匿名合规、表述清理、可复现性、参考文献核查。每类给出 PASS 或 FAIL 与证据清单。出现 FAIL 就修复，修复后全量重跑审查，不只查改动处。
+按 [references/review.md](references/review.md) 执行七类审查：数值一致性、交叉引用与编译、匿名合规、表述清理、可复现性、参考文献核查、创新与对比核查。每类给出 PASS 或 FAIL 与证据清单。出现 FAIL 就修复，修复后全量重跑审查，不只查改动处。
 
 用 [scripts/check_submission.py](scripts/check_submission.py) 扫描提交包：备份文件、缺失的图与引用、未定义引用、匿名泄漏。匿名投稿时加 --anonymous，会额外扫源文件里的作者块、中文字符与绝对路径。
 
@@ -70,12 +70,13 @@ description: 论文与报告的全流程写作技能。先确认用户要写论�
 - [scripts/check_numbers.py](scripts/check_numbers.py)：列出正文数字，与数据源 CSV 对照。
 - [scripts/snapshot_version.py](scripts/snapshot_version.py)：版本快照到 archive/ 并追加变更记录。
 - [references/pipeline.md](references/pipeline.md)：8 阶段流水线的完整说明，含每阶段产物与自动化要点。
-- [references/review.md](references/review.md)：五类审查的操作细则与 PASS/FAIL 判定。
+- [references/review.md](references/review.md)：七类审查的操作细则与 PASS/FAIL 判定。
 - [references/writing.md](references/writing.md)：语言规范与版式调整要求。
 - [references/latex.md](references/latex.md)：LaTeX 编译、中文支持、交叉引用与匿名处理。
 - [references/rebuttal.md](references/rebuttal.md)：投稿前模拟审查与审稿意见响应流程。
 - [references/versioning.md](references/versioning.md)：版本快照、命名与变更记录规范。
 - [references/figures.md](references/figures.md)：teaser/overview 绘图的叙事、面板与版式。
+- [references/cumcm.md](references/cumcm.md)：数学建模竞赛论文的篇幅、摘要、分析、创新点与附录代码规范。
 - [assets/templates/paper-skeleton.tex](assets/templates/paper-skeleton.tex)：论文初稿骨架。
 - [assets/templates/cumcm-skeleton.tex](assets/templates/cumcm-skeleton.tex)：数学建模竞赛论文骨架，摘要页与正文分离，不含承诺书页。
 - [assets/cumcmthesis/cumcmthesis.cls](assets/cumcmthesis/cumcmthesis.cls)：数学建模竞赛 LaTeX 类文件，含题号、报名号、队员等命令。
