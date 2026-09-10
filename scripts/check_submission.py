@@ -29,8 +29,9 @@ BACKUP_PATTERN = re.compile(
 )
 VERSION_NOTE = re.compile(r"(?<![A-Za-z0-9])v\d{1,3}\b")
 CJK = re.compile(r"[\u4e00-\u9fff]")
+# absolute paths only: the lookbehind rejects relative forms such as ../data/1/
 ABS_PATH = re.compile(
-    r"(?:/home/|/Users/|/data\d*/|/workspace/|/root/|/tmp/|"
+    r"(?<![\w.])(?:/home/|/Users/|/data\d*/|/workspace/|/root/|/tmp/|"
     r"[A-Za-z]:[\\/]Users[\\/]|[A-Za-z]:[\\/]Windows[\\/]|"
     r"[A-Za-z]:[\\/]Program\sFiles)"
 )
@@ -80,7 +81,11 @@ def scan(package, anonymous):
         for index, line in enumerate(lines, 1):
             stripped = line.strip()
             if anonymous:
-                if CJK.search(line):
+                identity_line = is_comment_line(line) or re.search(
+                    r"\\(?:author|affiliation|schoolname|baominghao|membera|memberb|memberc|supervisor)\b",
+                    line,
+                )
+                if CJK.search(line) and identity_line:
                     warns.append(f"{rel}:{index} 源文件含中文字符: {stripped[:80]}")
                 if ABS_PATH.search(line):
                     fails.append(f"{rel}:{index} 绝对路径: {stripped[:80]}")
