@@ -1,6 +1,6 @@
 ---
 name: write-paper-report
-description: 论文与报告的全流程写作技能。先确认用户要写论文还是报告，查找或生成模板，收集内容、数据、表格与图的需求并列出待办清单，按 8 阶段流水线完成写作、审查与修改，最后用本地 xelatex 编译为 PDF。当用户要求撰写、修改、润色、审查或编译论文/报告，或要求用 LaTeX 产出结构化文档并做质量检查时使用。
+description: 论文、报告与专利文件的全流程写作技能。先确认用户要写论文、报告还是专利文件，查找或生成模板，收集内容、数据、表格与图的需求并列出待办清单，按 8 阶段流水线完成写作、审查与修改，最后用本地 xelatex 编译为 PDF。当用户要求撰写、修改、润色、审查或编译论文/报告/专利文件，或要求用 LaTeX 产出结构化文档并做质量检查时使用。
 ---
 
 # 论文/报告全流程写作
@@ -13,7 +13,7 @@ description: 论文与报告的全流程写作技能。先确认用户要写论�
 
 ### 1. 确认类型
 
-先问用户要写论文还是报告。用户没有明确时，按论文处理，并在开头说明这个假设。
+先问用户要写论文、报告还是专利文件。用户没有明确时，按论文处理，并在开头说明这个假设。专利文件的权利要求支持与术语统一是审查重点，见 [references/patent.md](references/patent.md)。
 
 ### 2. 准备模板
 
@@ -26,6 +26,8 @@ description: 论文与报告的全流程写作技能。先确认用户要写论�
 数学建模竞赛（高教社杯/华数杯）优先用 [assets/cumcmthesis/cumcmthesis.cls](assets/cumcmthesis/cumcmthesis.cls) 社区标准类，用法示例见 [assets/templates/cumcm-skeleton.tex](assets/templates/cumcm-skeleton.tex)。电子版用 withoutpreface 选项，承诺书与编号专用页用官方模板单独提交。篇幅、摘要、问题分析、创新点与附录代码的写法见 [references/cumcm.md](references/cumcm.md)。
 
 报告：查找报告模板。找到后询问用户是否使用。找不到就使用 [assets/templates/report-skeleton.tex](assets/templates/report-skeleton.tex) 生成初稿。
+
+专利：发明专利申请文件结构与论文不同，含说明书摘要、权利要求书、说明书与说明书附图，常由 python-docx 脚本生成而非 LaTeX。写作与审查重点见 [references/patent.md](references/patent.md)。
 
 ### 3. 收集内容
 
@@ -77,6 +79,7 @@ description: 论文与报告的全流程写作技能。先确认用户要写论�
 - [references/versioning.md](references/versioning.md)：版本快照、命名与变更记录规范。
 - [references/figures.md](references/figures.md)：teaser/overview 绘图的叙事、面板与版式。
 - [references/cumcm.md](references/cumcm.md)：数学建模竞赛论文的篇幅、摘要、分析、创新点与附录代码规范。
+- [references/patent.md](references/patent.md)：专利文件的写作与审查，含权利要求支持、术语统一、逻辑链完整性与多轮迭代工作流。
 - [assets/templates/paper-skeleton.tex](assets/templates/paper-skeleton.tex)：论文初稿骨架。
 - [assets/templates/cumcm-skeleton.tex](assets/templates/cumcm-skeleton.tex)：数学建模竞赛论文骨架，摘要页与正文分离，不含承诺书页。
 - [assets/cumcmthesis/cumcmthesis.cls](assets/cumcmthesis/cumcmthesis.cls)：数学建模竞赛 LaTeX 类文件，含题号、报名号、队员等命令。

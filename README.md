@@ -1,6 +1,6 @@
 # write-paper-report 论文/报告全流程写作 skill
 
-本 skill 把论文与报告的写作组织成固定流程：确认类型、准备模板、收集需求、写作、审查、编译。适用于会议论文、期刊论文、学术报告和普通报告。用 Codex 打开后直接说要写论文或报告即可触发，也可以显式说 `Use $write-paper-report`。
+本 skill 把论文、报告与专利文件的写作组织成固定流程：确认类型、准备模板、收集需求、写作、审查、编译。适用于会议论文、期刊论文、学术报告、普通报告和发明专利申请文件。用 Codex 打开后直接说要写论文、报告或专利即可触发，也可以显式说 `Use $write-paper-report`。
 
 ## 功能总览
 
@@ -9,9 +9,9 @@
 - 六步工作流：确认论文/报告类型，找模板或生成初稿，收集需求，按 8 阶段流水线写作，七类审查，xelatex 编译。
 - 门控规则：每阶段产出固定产物，下一阶段先核对上一阶段产物，审查不过就退回。
 - 需求核实：页数与参考文献数量按会议/期刊/报告要求与用户确认，不按默认值。
-- 四类文档形态：会议论文、期刊论文、普通报告、学术报告，各有对应骨架。
+- 五类文档形态：会议论文、期刊论文、普通报告、学术报告、发明专利申请文件，各有对应骨架或写作规范。
 
-### 脚本（6 个）
+### 脚本（7 个）
 
 | 脚本 | 功能 |
 |------|------|
@@ -21,8 +21,9 @@
 | check_ai_style.py | AI 痕迹扫描：空话开头、排比连接词、长句、拽词、连接词重复、破折号 |
 | check_numbers.py | 正文数字清单，--csv/--ref 与数据源对照，标出数据源中找不到的数字 |
 | snapshot_version.py | 版本快照到 archive/vN 并追加变更记录 |
+| validate.sh | 技能自检：SKILL.md frontmatter 与 markdown 链接是否可解析，scripts 下 py/js/sh 语法是否通过（结构 + 语法两层，可加 --no-scripts 跳过语法） |
 
-### 参考文档（7 个）
+### 参考文档（9 个）
 
 | 文档 | 内容 |
 |------|------|
@@ -34,6 +35,7 @@
 | versioning.md | 版本命名、快照、变更记录、提交前清理、与 git 配合 |
 | figures.md | teaser/overview 叙事、面板规划、数据同源、版式与常见错误 |
 | cumcm.md | 数学建模竞赛论文：篇幅、摘要一页、图配置、通用框架、SOTA 对比、附录代码规范 |
+| patent.md | 专利文件：说明书摘要/权利要求书/说明书结构与篇幅、权利要求支持、术语统一、易混词区分、六轮迭代审查工作流 |
 
 ### 模板与样式
 
@@ -100,6 +102,9 @@ python scripts/check_numbers.py main.tex --csv figures/result.csv
 
 # 版本快照到 archive/vN 并写变更记录
 python scripts/snapshot_version.py <论文包目录> --message "修改摘要"
+
+# 技能自检：frontmatter、markdown 链接与脚本语法
+bash scripts/validate.sh .
 ```
 
 ## 环境要求
@@ -108,6 +113,7 @@ python scripts/snapshot_version.py <论文包目录> --message "修改摘要"
 - Python 3.8 或更新。
 - teaser 绘图模板需要 matplotlib 与 numpy。
 - 文献联网核验需要可访问 arXiv 与 Crossref。
+- validate.sh 需要 bash（Windows 上用 Git Bash）。
 
 ## 使用建议
 
@@ -123,3 +129,5 @@ python scripts/snapshot_version.py <论文包目录> --message "修改摘要"
 新会议或期刊：把官方 .sty 与 .bst 放进 assets/<会议名>/，在 SKILL.md 第 2 步和 references/latex.md 登记。
 
 新检查项：在 scripts/ 加脚本，在 SKILL.md 的资源清单登记，并在 references/review.md 写判定标准。
+
+改完跑一次 `bash scripts/validate.sh .`，确认链接与脚本语法都没断。
