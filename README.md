@@ -11,7 +11,7 @@
 - 需求核实：页数与参考文献数量按会议/期刊/报告要求与用户确认，不按默认值。
 - 五类文档形态：会议论文、期刊论文、普通报告、学术报告、发明专利申请文件，各有对应骨架或写作规范。
 
-### 脚本（7 个）
+### 脚本（8 个）
 
 | 脚本 | 功能 |
 |------|------|
@@ -22,8 +22,9 @@
 | check_numbers.py | 正文数字清单，--csv/--ref 与数据源对照，标出数据源中找不到的数字 |
 | snapshot_version.py | 版本快照到 archive/vN 并追加变更记录 |
 | validate.sh | 技能自检：SKILL.md frontmatter 与 markdown 链接是否可解析，scripts 下 py/js/sh 语法是否通过（结构 + 语法两层，可加 --no-scripts 跳过语法） |
+| check_consistency.py | 编号与提交一致性：label 与 \ref 对齐、正文与代码里写死的表号图号公式号章节号、附录是否挂全代码目录下的源程序、正文与附录页数、编译日志字体缺字 |
 
-### 参考文档（9 个）
+### 参考文档（10 个）
 
 | 文档 | 内容 |
 |------|------|
@@ -36,6 +37,7 @@
 | figures.md | teaser/overview 叙事、面板规划、数据同源、版式与常见错误 |
 | cumcm.md | 数学建模竞赛论文：篇幅、摘要一页、图配置、通用框架、SOTA 对比、附录代码规范 |
 | patent.md | 专利文件：说明书摘要/权利要求书/说明书结构与篇幅、权利要求支持、术语统一、易混词区分、六轮迭代审查工作流 |
+| consistency.md | 编号漂移、附录代码完整性、页数配平、字体缺字：三层编号核查的做法与真实案例 |
 
 ### 模板与样式
 
@@ -105,6 +107,9 @@ python scripts/snapshot_version.py <论文包目录> --message "修改摘要"
 
 # 技能自检：frontmatter、markdown 链接与脚本语法
 bash scripts/validate.sh .
+
+# 编号与提交一致性：三层编号、附录代码完整性、页数、字体缺字
+python scripts/check_consistency.py paper/ --codes codes/ --pdf paper/main.pdf --log paper/main.log
 ```
 
 ## 环境要求
@@ -123,6 +128,7 @@ bash scripts/validate.sh .
 - 文献逐条联网核验，AI 生成的文献经常编造来源。
 - 语言打磨按三遍修订法：结构、句子、词，顺序不要反。
 - 提交前按 submission-checklist.md 逐项核对。
+- 插过新表或新公式后重跑 check_consistency.py：写到正文里的旧编号不会自己跟着变。
 
 ## 扩展方式
 

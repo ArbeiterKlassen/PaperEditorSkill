@@ -71,7 +71,7 @@
 七类审查，全部可机器化：
 
 1. **数值一致性**：正文每个数字 ↔ CSV 复算值逐一比对（0.424/0.431 事故的直接防线）；表格、图注、摘要全覆盖
-2. **交叉引用与编译**：图表编号、引用键、import 有效性（教训：models.py import 不存在的旧名 linextnet，直接崩 train.py）；全部源码过语法审计（145 py 零错误）
+2. **交叉引用与编译**：图表编号、引用键、import 有效性（教训：models.py import 不存在的旧名 linextnet，直接崩 train.py）；全部源码过语法审计（145 py 零错误）；编号漂移、附录代码完整性与页数配平用 scripts/check_consistency.py 核查，见 references/consistency.md
 3. **匿名合规扫描**（投稿匿名版必做）：
    - 文本层：作者中英文名、机构、绝对路径（/home/xxx、/data1/xxx）、miniconda 路径
    - 二进制层：ckpt 内嵌 pickle 路径字符串（需二进制 scrub）
@@ -135,4 +135,6 @@ teaser/overview 的叙事、面板与版式见 references/figures.md，模板见
 - SKILL.md：工作流与门控规则。
 - references/review.md：七类审查的操作细则。
 - scripts/compile_latex.py：LaTeX 编译与日志检查。
+- scripts/check_consistency.py：编号三层核查、附录代码完整性、页数配平与字体缺字。
+- references/consistency.md：上述检查的做法、真实案例与命令行用法。
 - assets/templates/：论文骨架、报告骨架、claim-evidence 表。

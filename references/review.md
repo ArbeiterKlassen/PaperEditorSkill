@@ -20,6 +20,8 @@
 
 方法：编译项目，检查日志中的 undefined reference 与 undefined citation；核对图与表编号和正文引用一致；代码部分做语法审计。
 
+用 [scripts/check_consistency.py](../scripts/check_consistency.py) 把这一层变成可机验的退出码：三层编号（源码 label 与 \ref、正文写死的表号图号公式号章节号、代码注释里写死的编号）、附录代码完整性、正文与附录页数、编译日志字体缺字。做法与真实案例见 [consistency.md](consistency.md)。
+
 主文里写到的每个附录（如 Appendix~J）必须在补充材料中存在，正文每个 \cite 都要有对应条目。参考文献的 key 年份与条目年份要一致，真实案例：key 为 liao2022kitti360 的条目年份是 2023，key 为 he2026linext 的条目年份是 2025，这类不一致要修正。
 
 判定：编译通过且无未定义引用为 PASS。任何未定义引用、断链或语法错误为 FAIL。

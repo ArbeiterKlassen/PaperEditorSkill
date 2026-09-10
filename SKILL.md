@@ -49,6 +49,8 @@ description: 论文、报告与专利文件的全流程写作技能。先确认�
 
 用 [scripts/check_submission.py](scripts/check_submission.py) 扫描提交包：备份文件、缺失的图与引用、未定义引用、匿名泄漏。匿名投稿时加 --anonymous，会额外扫源文件里的作者块、中文字符与绝对路径。
 
+编号与提交一致性用 [scripts/check_consistency.py](scripts/check_consistency.py) 查三层：源码里 label 与 \ref 是否对齐，正文与代码里有没有写死表号、图号、公式号与章节号，附录有没有挂全代码目录下的源程序；顺带报出正文与附录的页数、编译日志里的字体缺字。插过新表新公式之后必须重跑，细节与真实案例见 [references/consistency.md](references/consistency.md)。
+
 用 [scripts/check_references.py](scripts/check_references.py) 检查 .bib 结构，加 --tex 核对 thebibliography 与 bib 的年份一致性，加 --online 联网核验 arXiv 与 DOI，防止 AI 编造文献。没有 arXiv 或 DOI 的条目按标题加作者人工检索。
 
 数值一致性用 [scripts/check_numbers.py](scripts/check_numbers.py) 生成正文数字清单，加 --csv 与数据源对照，找出不在数据源中的数字。
@@ -71,6 +73,7 @@ description: 论文、报告与专利文件的全流程写作技能。先确认�
 - [scripts/check_references.py](scripts/check_references.py)：检查 .bib 结构，联网核验 arXiv 与 DOI。
 - [scripts/check_numbers.py](scripts/check_numbers.py)：列出正文数字，与数据源 CSV 对照。
 - [scripts/snapshot_version.py](scripts/snapshot_version.py)：版本快照到 archive/ 并追加变更记录。
+- [scripts/check_consistency.py](scripts/check_consistency.py)：编号与提交一致性核查，含三层编号、附录代码完整性、页数配平与字体缺字。
 - [references/pipeline.md](references/pipeline.md)：8 阶段流水线的完整说明，含每阶段产物与自动化要点。
 - [references/review.md](references/review.md)：七类审查的操作细则与 PASS/FAIL 判定。
 - [references/writing.md](references/writing.md)：语言规范与版式调整要求。
@@ -79,6 +82,7 @@ description: 论文、报告与专利文件的全流程写作技能。先确认�
 - [references/versioning.md](references/versioning.md)：版本快照、命名与变更记录规范。
 - [references/figures.md](references/figures.md)：teaser/overview 绘图的叙事、面板与版式。
 - [references/cumcm.md](references/cumcm.md)：数学建模竞赛论文的篇幅、摘要、分析、创新点与附录代码规范。
+- [references/consistency.md](references/consistency.md)：编号漂移、附录代码完整性、页数配平与字体缺字的检查方法，附真实案例。
 - [references/patent.md](references/patent.md)：专利文件的写作与审查，含权利要求支持、术语统一、逻辑链完整性与多轮迭代工作流。
 - [assets/templates/paper-skeleton.tex](assets/templates/paper-skeleton.tex)：论文初稿骨架。
 - [assets/templates/cumcm-skeleton.tex](assets/templates/cumcm-skeleton.tex)：数学建模竞赛论文骨架，摘要页与正文分离，不含承诺书页。
