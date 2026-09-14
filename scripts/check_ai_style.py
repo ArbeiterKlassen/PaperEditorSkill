@@ -9,6 +9,9 @@ Flags with file and line number:
 - buzzwords that cannot be verified quantitatively
 - sentences longer than the word threshold
 - repeated paragraph connectors above a document-level count
+- mechanical ordinal enumeration in prose (第X，/ 第X件), which no vocabulary
+  list catches and which readers reliably recognise as machine-written
+- demonstrative tags such as 这一条 / 这一点 used as sentence props
 
 Exit code: 0 when no flags, 1 when flags are found.
 """
@@ -63,6 +66,20 @@ COUNT_PATTERNS = [
     (re.compile(r"[\u2013\u2014]"), "破折号", 2),
     (re.compile(r"\uFF1A"), "全角冒号", 3),
     (re.compile(r"[\u201C\u201D\u2018\u2019]"), "引号", 1),
+    (re.compile(r"第[一二三四五六七八九][，、]"), "序数分点句", 0),
+    (re.compile(r"第[一二三四五六七八九](件|种|个)"), "序数分点句", 3),
+    # 结构层次（双线划分、三层结构、证明步骤、主张编号）允许少量使用，
+    # 阈值放宽到 12；真正要清零的是带逗号的散文序数分点。
+    (re.compile(r"第[一二三四五六七八九](层|条|步|部分|方面|类)"), "序数分点句", 12),
+    (re.compile(r"(这一条|这一点|这条主张|这条曲线|这条结论|这条原则|该判据|该机制|该原则|该主张)"), "指代标签句", 5),
+    (re.compile(r"(需要说明的是|要写清|必须承认|值得一提的是|这里要说明|不可混同|需明确区分|需要指出的是)"), "元话语开场", 2),
+    # 模板腔段首：专利与说明书体"所述 X 的……如下"，十余处即构成模板节奏，
+    # 不必清零，改一半破节奏；阈值 8。
+    (re.compile(r"所述[^。：，]{2,22}如下[。：]"), "模板腔段首", 8),
+    # 内部编辑提示：定稿必须清零，阈值 0。
+    (re.compile(r"(请按实际修改|请根据实际情况|若与实际不符|待补充|待核对)"), "内部编辑提示", 0),
+    # 中文之间的斜杠（和/或、组会/会议），文件路径与公式场景需人工排除，阈值 3。
+    (re.compile(r"[一-鿿]/[一-鿿]"), "正文斜杠", 3),
 ]
 
 TARGET_EXT = {".tex", ".md"}

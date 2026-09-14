@@ -1,6 +1,6 @@
 ---
 name: write-paper-report
-description: 论文、报告与专利文件的全流程写作技能。先确认用户要写论文、报告还是专利文件，查找或生成模板，收集内容、数据、表格与图的需求并列出待办清单，按 8 阶段流水线完成写作、审查与修改，最后用本地 xelatex 编译为 PDF。当用户要求撰写、修改、润色、审查或编译论文/报告/专利文件，或要求用 LaTeX 产出结构化文档并做质量检查时使用。
+description: 论文、报告与专利文件的全流程写作技能。先确认用户要写论文、报告还是专利文件，查找或生成模板，收集内容、数据、表格与图的需求并列出待办清单，按 8 阶段流水线完成写作、审查与修改，最后用本地 xelatex 编译为 PDF。当用户要求撰写、修改、润色、审查或编译论文/报告/专利文件，对成稿做多轮精改复核、逐句润色或评估外部修改意见，或要求用 LaTeX 产出结构化文档并做质量检查时使用。
 ---
 
 # 论文/报告全流程写作
@@ -47,6 +47,8 @@ description: 论文、报告与专利文件的全流程写作技能。先确认�
 
 按 [references/review.md](references/review.md) 执行七类审查：数值一致性、交叉引用与编译、匿名合规、表述清理、可复现性、参考文献核查、创新与对比核查。每类给出 PASS 或 FAIL 与证据清单。出现 FAIL 就修复，修复后全量重跑审查，不只查改动处。
 
+多轮精改场景（用户拿改过的稿子复核、拿外部意见评估、逐句润色）按 [references/polish.md](references/polish.md) 执行：先 diff 上一版做落实核对与回归捕捉，外部意见先做采纳判定与过时引文映射，报告按必修/建议/可选分级并附批量替换表、请核对清单、不要动清单与验收清单，模板见 [assets/templates/polish-report-template.md](assets/templates/polish-report-template.md)。
+
 用 [scripts/check_submission.py](scripts/check_submission.py) 扫描提交包：备份文件、缺失的图与引用、未定义引用、匿名泄漏。匿名投稿时加 --anonymous，会额外扫源文件里的作者块、中文字符与绝对路径。
 
 编号与提交一致性用 [scripts/check_consistency.py](scripts/check_consistency.py) 查三层：源码里 label 与 \ref 是否对齐，正文与代码里有没有写死表号、图号、公式号与章节号，附录有没有挂全代码目录下的源程序；顺带报出正文与附录的页数、编译日志里的字体缺字。插过新表新公式之后必须重跑，细节与真实案例见 [references/consistency.md](references/consistency.md)。
@@ -83,7 +85,8 @@ description: 论文、报告与专利文件的全流程写作技能。先确认�
 - [references/figures.md](references/figures.md)：teaser/overview 绘图的叙事、面板与版式。
 - [references/cumcm.md](references/cumcm.md)：数学建模竞赛论文的篇幅、摘要、分析、创新点与附录代码规范。
 - [references/consistency.md](references/consistency.md)：编号漂移、附录代码完整性、页数配平与字体缺字的检查方法，附真实案例。
-- [references/patent.md](references/patent.md)：专利文件的写作与审查，含权利要求支持、术语统一、逻辑链完整性与多轮迭代工作流。
+- [references/patent.md](references/patent.md)：专利文件的写作与审查，含权利要求支持、术语统一、逻辑链完整性、权利要求规范性五查与多轮迭代工作流。
+- [references/polish.md](references/polish.md)：成稿多轮精改复核方法，含版本 diff 驱动复核、外部意见采纳判定、精改报告格式、定性表述自洽、跨文档口径、加黑治理与佐证材料专项。
 - [assets/templates/paper-skeleton.tex](assets/templates/paper-skeleton.tex)：论文初稿骨架。
 - [assets/templates/cumcm-skeleton.tex](assets/templates/cumcm-skeleton.tex)：数学建模竞赛论文骨架，摘要页与正文分离，不含承诺书页。
 - [assets/cumcmthesis/cumcmthesis.cls](assets/cumcmthesis/cumcmthesis.cls)：数学建模竞赛 LaTeX 类文件，含题号、报名号、队员等命令。
@@ -95,4 +98,5 @@ description: 论文、报告与专利文件的全流程写作技能。先确认�
 - [assets/templates/teaser_template.py](assets/templates/teaser_template.py)：三面板 teaser 绘图模板。
 - [assets/templates/title-abstract-intro-check.md](assets/templates/title-abstract-intro-check.md)：标题、摘要、引言对照表。
 - [assets/templates/submission-checklist.md](assets/templates/submission-checklist.md)：提交前人工检查清单。
+- [assets/templates/polish-report-template.md](assets/templates/polish-report-template.md)：精改报告模板，含分级清单、批量替换表、请核对清单、不要动清单与验收清单。
 - [assets/aaai2027/](assets/aaai2027/)：AAAI-27 Author Kit 样式文件，aaai2027.sty 与 aaai2027.bst。
